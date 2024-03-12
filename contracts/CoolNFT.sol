@@ -102,7 +102,7 @@ contract CoolNFT is ERC721, Ownable, EIP712 {
         if (supplyCached+BATCH_MINT_AMOUNT > MAX_SUPPLY) revert BatchMintExceedsMaxSupply();
 
         // No need to cache the loop variable to optimize in new Solidity versions
-        uint256[6] memory ids;
+        uint256[BATCH_MINT_AMOUNT] memory ids;
         for (uint256 i = 1; i < BATCH_MINT_AMOUNT+1; i++) {
             uint256 currentId = supplyCached+i;
             ids[i-1] = currentId;
